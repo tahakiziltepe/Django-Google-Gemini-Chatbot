@@ -49,6 +49,36 @@ def online_people(request):
     online_people = OnlineUserActivity.get_user_activities()
     return render(request, 'bot/online_people.html', {'online_people': online_people, 'users': users})
 
+@staff_member_required
+def update_prompt(request):
+    current_prompt = Prompt.objects.all().order_by('datetime').first()
+
+    if current_prompt is not None:
+        form = prompt_form()
+        if request.method == 'POST':
+            form = prompt_form(request.POST)
+            print(request.POST.get('message'))
+            if form.is_valid():
+                current_prompt.message = request.POST.get('message')
+                current_prompt.save()
+                messages.success(request, 'Prompt updated successfully.')
+                return redirect('bot:update_prompt')
+        context = {'form': form,
+                'current_prompt': current_prompt}
+    else:
+        form = prompt_form()
+        if request.method == 'POST':
+            form = prompt_form(request.POST)
+            print(request.POST.get('message'))
+            if form.is_valid():
+                Prompt(username='promptUser', user='promptUser', message=request.POST.get('message')).save()
+                Prompt(username='promptUser', user='🤖🤖 Bot', message='Tamam.').save()
+                messages.success(request, 'Prompt created successfully.')
+                return redirect('bot:update_prompt')
+        context = {'form': form}
+        pass
+    return render(request, 'bot/update_prompt.html', context)  
+
 
 @login_required(login_url='bot:login')
 def chat_page(request):

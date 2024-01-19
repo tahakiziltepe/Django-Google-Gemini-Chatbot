@@ -43,8 +43,12 @@
                         <a href="{% url 'bot:online_people' %}" class = "nav-link"> Online People </a>
                     </li>
                     <li>
+                        <a href="{% url 'bot:update_prompt' %}" class = "nav-link"> Update Prompt </a>
+                    </li>
+                    <li>
                         <a href="{% url 'admin:index' %}" class = "nav-link"> Admin </a>
                     </li>
+
                 {% endif %}
 
                 {% if user.is_authenticated %}
