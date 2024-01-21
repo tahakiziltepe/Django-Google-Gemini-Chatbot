@@ -6,7 +6,7 @@
 
 {% load crispy_forms_tags %}
 
-<form id="myForm">
+<form method="POST" action="{% url 'bot:submit_form' %}">
 {% crispy form %}
 </form>
 
@@ -64,35 +64,8 @@
 
 {% block scripts %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script>
-
-        $(function() {
-          $('#myForm').submit(function(event) {
-            event.preventDefault(); // Prevent form submission
-            var formData = $(this).serialize();
-            // Butonu bul, disable et, içindeki metni 'Sending...' ile değiştir.
-            var submitButton = $(this).find('input[type="submit"]');
-            submitButton.prop("disabled", true);
-            submitButton.val('Sending...');
-            // Reset the form fields
-            $('#myForm')[0].reset();
-            $.ajax({
-              url: '/submit/',
-              method: 'POST',
-              data: formData,
-              success: function(response) {
-<!--                $('#result').html(response.result);-->
-                window.location.href = '/';
-              },
-              error: function() {
-                console.log('Error occurred while submitting the form.');
-              }
-            });
-          });
-        });
-      </script>
     <script>
-        // Sayfa açıldığında message alanı seçilsin.
+        // Select input field on page load
         window.addEventListener('DOMContentLoaded', function() {
             var messageField = document.getElementById('id_message');
             messageField.focus();

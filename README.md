@@ -1,7 +1,7 @@
 # Gemini with Prompt!
 
 Create your own chat environment and define a prompt! People can register on this site and chat with Gemini, influenced of course by the prompt you define!
-Be careful about that this project use multi-turn chat system. Therefore, make sure last message from 🤖🤖 Bot! (If not, you can delete your last message.)
+Be careful about that this project use multi-turn chat system. Therefore, make sure last message from '🤖🤖 Bot'! (If not, you can delete your last message.)
 
 ## Features
 
@@ -39,6 +39,6 @@ Create admin user. Needed if you want to use Admin dashboard.
 
     python manage.py createsuperuser
 
-Start server, port number is optional, default is 8000
+Start server
 
     python manage.py runserver
