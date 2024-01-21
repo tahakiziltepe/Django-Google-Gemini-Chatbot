@@ -15,12 +15,12 @@ def generate_content_bot(msg):
             response = model.generate_content(msg)
             yanit = response.text
             print(yanit)
-            return yanit.replace('<pre>', "<'pre'>").replace('<code>', "<'code'>").replace('•', '  *')
+            return yanit.replace('•', '  *')
         except ValueError:
             i = i + 1
-            print("utils -> Except çalıştı. Deneme: " + str(i))
+            print("utils -> Has got ValueError. Tried: " + str(i))
             if i > 3:
-                return "Tekrar yazar mısınız?"
+                return """Has got ValueError. <br><span class="placeholder col-12 bg-danger"></span>"""
             else:
                 continue
         except Exception as e:

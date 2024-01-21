@@ -35,10 +35,12 @@ Migrate database
     python manage.py makemigrations
     python manage.py migrate
 
-Create admin user. Needed if you want to use Admin dashboard.
+Create admin user
 
     python manage.py createsuperuser
 
 Start server
 
     python manage.py runserver
+
+You are going to see _Update Prompt_ on navbar, when you login as a staff member. Add/update it and start chatting with Gemini. (If username is "admin", you can talk to Gemini without affecting by prompt.) Share with people to get them to talk to Gemini with your prompt.
