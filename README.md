@@ -44,3 +44,22 @@ Start server
     python manage.py runserver
 
 You are going to see _Update Prompt_ on navbar, when you login as a staff member. Add/update it and start chatting with Gemini. (If username is "admin", you can talk to Gemini without affecting by prompt.) Share with people to get them to talk to Gemini with your prompt.
+
+
+## Images
+
+![1register page](./readme_images/1register.JPG)
+
+![2login page](./readme_images/2login.JPG)
+
+![3update_prompt_without page](./readme_images/3update_prompt_without.JPG)
+
+![4update_prompt_with page](./readme_images/4update_prompt_with.JPG)
+
+![5home_without_message_admin page](./readme_images/5home_without_message_admin.JPG)
+
+![6home_with_message_admin page](./readme_images/6home_with_message_admin.JPG)
+
+![7home_without_message_test page](./readme_images/7home_without_message_test.JPG)
+
+![8home_with_message_test page](./readme_images/8home_with_message_test.JPG)

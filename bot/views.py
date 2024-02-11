@@ -72,7 +72,7 @@ def update_prompt(request):
             print(request.POST.get('message'))
             if form.is_valid():
                 Prompt(username='promptUser', user='promptUser', message=request.POST.get('message')).save()
-                Prompt(username='promptUser', user='🤖🤖 Bot', message='Tamam.').save()
+                Prompt(username='promptUser', user='🤖🤖 Bot', message='OK.').save()
                 messages.success(request, 'Prompt created successfully.')
                 return redirect('bot:update_prompt')
         context = {'form': form}
@@ -136,3 +136,11 @@ def delete_message_from_db(request, v_id):
     message = ChatHistory.objects.filter(id=v_id)
     message.delete()
     return redirect('bot:chat_page')
+
+
+@staff_member_required
+def delete_prompt(request):
+    prompt_elements = Prompt.objects.all()
+    for prompt in prompt_elements:
+        prompt.delete()
+    return redirect('bot:update_prompt')

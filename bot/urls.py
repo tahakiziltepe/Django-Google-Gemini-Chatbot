@@ -9,6 +9,8 @@ urlpatterns = [
     path('clear_chat_history/', views.clear_chat_history, name='clear_chat_history'),
     path('delete_message_from_db/<int:v_id>', views.delete_message_from_db, name="delete_message_from_db"),
     path('update_prompt/', views.update_prompt, name='update_prompt'),
+    path('delete_prompt/', views.delete_prompt, name='delete_prompt'),
+    
 
 
     path('register/', views.register_page, name='register'),
